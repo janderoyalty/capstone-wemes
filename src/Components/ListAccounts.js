@@ -10,6 +10,7 @@ const ListAccounts = ({ accounts, wemes_url }) => {
   const [clickedIndex, setClickedIndex] = useState(0);
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
+  const [selectAccount, setSelectedAccount] = useState()
 
   const sortedAccounts = accounts.sort((a, b) => {
     let order = orderBy === "asc" ? 1 : -1;
@@ -25,6 +26,7 @@ const ListAccounts = ({ accounts, wemes_url }) => {
         onClick={() => {
           setClickedIndex(index);
           setModalShow(true);
+          setSelectedAccount(account)
         }}
       >
         <td>
@@ -48,7 +50,7 @@ const ListAccounts = ({ accounts, wemes_url }) => {
           onHide={() => setModalShow(false)}
           wemes_url={wemes_url}
           index={clickedIndex}
-          // transactiondata={}
+          selectedAccount={selectAccount}
         />
         <SortMenuAccounts
           sortBy={sortBy}

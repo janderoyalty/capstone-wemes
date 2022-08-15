@@ -18,8 +18,8 @@ const Transactions = ({ wemes_url }) => {
           return {
             id: transaction.id,
             drop_off: transaction.drop_off,
-            admin: transaction.admin,
-            customer: transaction.customer,
+            admin: `${transaction.admin.first_name} ${transaction.admin.last_name}`,
+            customer: `${transaction.admin.first_name} ${transaction.admin.last_name}`,
             items: transaction.items,
             description: transaction.description,
           };
@@ -31,34 +31,33 @@ const Transactions = ({ wemes_url }) => {
       });
   };
 
-  const getAccounts = () => {
-    axios
-      .get(`${wemes_url}users/`)
-      .then((response) => {
-        const newData = response.data.map((account) => {
-          return {
-            id: account.id,
-            first_name: account.first_name,
-            last_name: account.last_name,
-            admin: account.admin,
-            is_active: account.is_active,
-          };
-        });
-        setAccountData(newData);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  };
-
+  // const getAccounts = () => {
+  //   axios
+  //     .get(`${wemes_url}users/`)
+  //     .then((response) => {
+  //       const newData = response.data.map((account) => {
+  //         return {
+  //           id: account.id,
+  //           first_name: account.first_name,
+  //           last_name: account.last_name,
+  //           admin: account.admin,
+  //           is_active: account.is_active,
+  //         };
+  //       });
+  //       setAccountData(newData);
+  //     })
+  //     .catch((err) => {
+  //       alert(err);
+  //     });
+  // };
 
   // useEffect(() => getTransactions(), [transactionData]);
   useEffect(() => getTransactions(), []);
 
   const hideModal = () => {
     setAddTransactionModalShow(false);
-    getTransactions()
-  }
+    getTransactions();
+  };
   return (
     <div>
       <h1>Transactions</h1>
