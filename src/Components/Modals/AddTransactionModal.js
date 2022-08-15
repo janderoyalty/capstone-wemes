@@ -129,9 +129,9 @@ function AddTransactionModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" value="false" label="Check me out" />
-      </Form.Group> */}
+      </Form.Group>
 
           <Button variant="warning" type="submit" onClick={props.onHide}>
             Submit

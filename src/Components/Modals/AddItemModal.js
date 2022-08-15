@@ -169,11 +169,11 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formIsShoe">
-            <Form.Label>Is Shoe</Form.Label>
-            <Form.Control
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
               type="checkbox"
-              // placeholder="Color"
+              value="false"
+              label="Is Shoes"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
@@ -181,14 +181,13 @@ function AddItemModal(props) {
                 })
               }
             />
-            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formFollowUp">
-            <Form.Label>Needs Follow-Up</Form.Label>
-            <Form.Control
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
               type="checkbox"
-              // placeholder="Color"
+              value="false"
+              label="Follow Up"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
@@ -196,7 +195,6 @@ function AddItemModal(props) {
                 })
               }
             />
-            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formType">

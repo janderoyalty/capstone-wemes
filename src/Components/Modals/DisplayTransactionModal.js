@@ -9,10 +9,8 @@ import AddItemModal from "./AddItemModal";
 
 function DisplayTransactionModal(props) {
   const [modalShow, setModalShow] = useState(false);
-
   const [transactionData, setTransactionData] = useState({});
-
-  // console.log(props);
+  
   const dispalyTransaction = () => {
     axios
       .get(`${props.wemes_url}transactions/${props.index + 1}/`)
@@ -65,7 +63,7 @@ function DisplayTransactionModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Edit Transaction
+          Edit Transaction {props.index + 1}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

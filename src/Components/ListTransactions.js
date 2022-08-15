@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 import SortMenuTransactions from "../Components/SortMenuTransactions";
 import DisplayTransactionModal from "./Modals/DisplayTransactionModal";
+import {AiFillEdit} from "react-icons/ai";
 
 const ListTransactions = ({ transactionData, wemes_url }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -26,6 +27,7 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
           setModalShow(true);
         }}
       >
+        <td><AiFillEdit/></td>
         <td>{transaction.customer}</td>
         <td>{transaction.admin}</td>
         <td>{transaction.drop_off}</td>
@@ -43,6 +45,7 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
           onHide={() => setModalShow(false)}
           wemes_url={wemes_url}
           index={clickedIndex}
+          // transactiondata={}
         />
         <SortMenuTransactions
           sortBy={sortBy}
@@ -58,6 +61,7 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
       <Table striped hover>
         <thead>
           <tr>
+            <th>Edit</th>
             <th>Customer</th>
             <th>Admin</th>
             <th>Dropped Off</th>
