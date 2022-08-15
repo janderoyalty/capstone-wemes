@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 import SortMenuAccounts from "./SortMenuAccounts";
+import { AiFillEdit } from "react-icons/ai";
+import DisplayAccountModal from "./Modals/DisplayAccountModal";
 
-const ListAccounts = ({ accounts }) => {
+const ListAccounts = ({ accounts, wemes_url }) => {
+  const [modalShow, setModalShow] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(0);
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
 
@@ -16,7 +20,16 @@ const ListAccounts = ({ accounts }) => {
 
   const accountInfo = () => {
     return sortedAccounts.map((account, index) => (
-      <tr key={index} onClick={() => console.log(`CLICK ACCOUNT`)}>
+      <tr
+        key={index}
+        onClick={() => {
+          setClickedIndex(index);
+          setModalShow(true);
+        }}
+      >
+        <td>
+          <AiFillEdit />
+        </td>
         <td>{account.last_four}</td>
         <td>{account.first_name}</td>
         <td>{account.last_name}</td>
@@ -30,6 +43,13 @@ const ListAccounts = ({ accounts }) => {
   return (
     <>
       <div>
+        <DisplayAccountModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          wemes_url={wemes_url}
+          index={clickedIndex}
+          // transactiondata={}
+        />
         <SortMenuAccounts
           sortBy={sortBy}
           onSortByChange={(sortOption) => {
@@ -44,6 +64,7 @@ const ListAccounts = ({ accounts }) => {
       <Table striped hover date-paganation="true">
         <thead>
           <tr>
+            <th>Edit</th>
             <th>Account ID</th>
             <th>First Name</th>
             <th>Last Name</th>

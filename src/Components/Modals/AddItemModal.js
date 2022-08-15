@@ -128,7 +128,7 @@ function AddItemModal(props) {
             <Form.Label>Description</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Leave a Note"
+              placeholder="What needs to be done?"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
