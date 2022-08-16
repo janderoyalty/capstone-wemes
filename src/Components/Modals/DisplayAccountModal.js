@@ -8,6 +8,7 @@ import AddTransactionModal from "./AddTransactionModal";
 
 const DisplayAccountModal = (props) => {
   const [modalShow, setModalShow] = useState(false);
+  // const [accountIndex, setAccountIndex] = useState(0)
   const [updatedAccountData, setUpdatedAccountData] = useState({
     first_name: props.selectedaccount.first_name,
     last_name: props.selectedaccount.last_name,
@@ -26,14 +27,16 @@ const DisplayAccountModal = (props) => {
 
   const submitAccountData = (event) => {
     event.preventDefault();
-    updateAccountData(props.index, updatedAccountData);
-    setUpdatedAccountData({
-      first_name: "",
-      last_name: "",
-      phone_num: "",
-      last_four: "",
-      email: "",
-    });
+    console.log("YOU ARE HERE");
+    console.log(props.selectedaccount.id);
+    updateAccountData(props.selectedaccount.id, updatedAccountData);
+    // setUpdatedAccountData({
+    //   first_name: "",
+    //   last_name: "",
+    //   phone_num: "",
+    //   last_four: "",
+    //   email: "",
+    // });
   };
   return (
     <Modal
@@ -150,15 +153,21 @@ const DisplayAccountModal = (props) => {
               {props.selectedaccount.last_four}
             </Form.Text>
           </Form.Group>
-        </Form>
-        <Button
+          <Button
           className="modal-button"
           variant="warning"
           type="submit"
           onClick={props.onHide}
-        >
+          >
           Submit
         </Button>
+          {/* <input
+            // className="modal-button"
+            // variant="warning"
+            type="submit"
+            onClick={props.onHide}
+          /> */}
+        </Form>
       </Modal.Body>
     </Modal>
   );
