@@ -16,10 +16,10 @@ const NaviBar = ({ accounts, transactions }) => {
     <Router>
       <div>
         <Navbar bg="warning">
-          <Navbar.Brand as={Link} to={"/"}>
-            Wemes
-          </Navbar.Brand>
           <Container justify="right">
+            <Navbar.Brand as={Link} to={"/"}>
+              Wemes
+            </Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link as={Link} to={"/accounts"}>
                 Accounts

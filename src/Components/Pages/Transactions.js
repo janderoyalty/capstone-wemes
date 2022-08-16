@@ -19,7 +19,7 @@ const Transactions = ({ wemes_url }) => {
             id: transaction.id,
             drop_off: transaction.drop_off,
             admin: `${transaction.admin.first_name} ${transaction.admin.last_name}`,
-            customer: `${transaction.admin.first_name} ${transaction.admin.last_name}`,
+            customer: `${transaction.customer.first_name} ${transaction.customer.last_name}`,
             items: transaction.items,
             description: transaction.description,
           };

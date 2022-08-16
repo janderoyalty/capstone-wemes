@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
-function AddAccountModal(props) {
+const AddAccountModal = (props) => {
   const addAccount = ({
     first_name,
     last_name,
