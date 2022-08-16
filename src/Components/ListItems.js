@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 import SortMenuItems from "./SortMenuItems";
 import DisplayItemModal from "./Modals/DisplayItemModal";
 import { AiFillEdit } from "react-icons/ai";
+import axios from "axios";
 
-const ListItems = ({ items, wemes_url }) => {
+const ListItems = ({ items, wemes_url, colordata }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
   const [selecteditem, setSelectedItem] = useState({});
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
-
   const sortedItems = items.sort((a, b) => {
     let order = orderBy === "asc" ? 1 : -1;
     let sortByA = sortBy === "id" ? a[sortBy] : a[sortBy];
@@ -19,6 +19,7 @@ const ListItems = ({ items, wemes_url }) => {
     return sortByA < sortByB ? -1 * order : 1 * order;
   });
 
+  
   const itemInfo = () => {
     return sortedItems.map((item, index) => (
       <tr
@@ -53,6 +54,7 @@ const ListItems = ({ items, wemes_url }) => {
           wemes_url={wemes_url}
           index={clickedIndex}
           selecteditem={selecteditem}
+          colordata={colordata}
         />
         <SortMenuItems
           sortBy={sortBy}
