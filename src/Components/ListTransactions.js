@@ -3,13 +3,14 @@ import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 import SortMenuTransactions from "../Components/SortMenuTransactions";
 import DisplayTransactionModal from "./Modals/DisplayTransactionModal";
-import {AiFillEdit} from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 
 const ListTransactions = ({ transactionData, wemes_url }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
+  const [selectedtransaction, setSelectedTransaction] = useState({});
 
   const sortedTransactions = transactionData.sort((a, b) => {
     let order = orderBy === "asc" ? 1 : -1;
@@ -25,9 +26,12 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
         onClick={() => {
           setClickedIndex(index);
           setModalShow(true);
+          setSelectedTransaction(transaction);
         }}
       >
-        <td><AiFillEdit/></td>
+        <td>
+          <AiFillEdit />
+        </td>
         <td>{transaction.customer}</td>
         <td>{transaction.admin}</td>
         <td>{transaction.drop_off}</td>
@@ -45,7 +49,7 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
           onHide={() => setModalShow(false)}
           wemes_url={wemes_url}
           index={clickedIndex}
-          // transactiondata={}
+          selectedtransaction={selectedtransaction}
         />
         <SortMenuTransactions
           sortBy={sortBy}

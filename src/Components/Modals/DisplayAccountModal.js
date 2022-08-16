@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../../App.css";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -8,7 +7,6 @@ import Form from "react-bootstrap/Form";
 import AddTransactionModal from "./AddTransactionModal";
 
 const DisplayAccountModal = (props) => {
-  console.log(props.index);
   const [modalShow, setModalShow] = useState(false);
   const [updatedAccountData, setUpdatedAccountData] = useState({
     first_name: props.selectedaccount.first_name,
@@ -50,13 +48,17 @@ const DisplayAccountModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Button
-        className="modal-button"
         variant="warning"
         type="submit"
         onClick={() => setModalShow(true)}
       >
         Add Transaction
       </Button>
+      <AddTransactionModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        wemes_url={props.wemes_url}
+      />{" "}
       <Modal.Body>
         <Form size="lg" onSubmit={submitAccountData}>
           {/* <Form size="lg"> */}
@@ -158,11 +160,6 @@ const DisplayAccountModal = (props) => {
         >
           Submit
         </Button>
-        <AddTransactionModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          wemes_url={props.wemes_url}
-        />{" "}
       </Modal.Body>
     </Modal>
   );
