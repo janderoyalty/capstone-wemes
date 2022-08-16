@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 import SortMenuItems from "./SortMenuItems";
+import DisplayItemModal from "./Modals/DisplayItemModal";
+import { AiFillEdit } from "react-icons/ai";
 
-const ListItems = ({ items }) => {
+const ListItems = ({ items, wemes_url }) => {
+  const [modalShow, setModalShow] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(0);
+  const [selecteditem, setSelectedItem] = useState({});
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
 
@@ -16,14 +21,23 @@ const ListItems = ({ items }) => {
 
   const itemInfo = () => {
     return sortedItems.map((item, index) => (
-      <tr key={index} onClick={() => console.log(`CLICK ACCOUNT`)}>
-        {/* <td>{item.tag_id}</td> */}
+      <tr
+        key={index}
+        onClick={() => {
+          setClickedIndex(index);
+          setModalShow(true);
+          setSelectedItem(item);
+        }}
+      >
+        <td>
+          <AiFillEdit />
+        </td>
         <td>{item.drop_off}</td>
         <td>{item.due_date}</td>
         <td>{item.type}</td>
         <td>{item.color}</td>
         <td>{item.is_shoe === true ? "shoe" : "sewing"}</td>
-        <td>{item.follow_up=== true ? "yes": "no"}</td>
+        <td>{item.follow_up === true ? "yes" : "no"}</td>
         <td>{item.description}</td>
         <td>{item.transaction}</td>
       </tr>
@@ -33,6 +47,13 @@ const ListItems = ({ items }) => {
   return (
     <>
       <div>
+        <DisplayItemModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          wemes_url={wemes_url}
+          index={clickedIndex}
+          selecteditem={selecteditem}
+        />
         <SortMenuItems
           sortBy={sortBy}
           onSortByChange={(sortOption) => {
@@ -47,7 +68,7 @@ const ListItems = ({ items }) => {
       <Table striped hover date-paganation="true">
         <thead>
           <tr>
-            {/* <th>Tag ID</th> */}
+            <th>Edit</th>
             <th>Drop Off Date</th>
             <th>Due Date</th>
             <th>Type</th>

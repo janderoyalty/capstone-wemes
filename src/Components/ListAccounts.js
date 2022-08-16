@@ -8,9 +8,9 @@ import DisplayAccountModal from "./Modals/DisplayAccountModal";
 const ListAccounts = ({ accounts, wemes_url }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
+  const [selectedaccount, setSelectedAccount] = useState({});
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
-  const [selectedaccount, setSelectedAccount] = useState({})
 
   const sortedAccounts = accounts.sort((a, b) => {
     let order = orderBy === "asc" ? 1 : -1;
@@ -26,7 +26,7 @@ const ListAccounts = ({ accounts, wemes_url }) => {
         onClick={() => {
           setClickedIndex(index);
           setModalShow(true);
-          setSelectedAccount(account)
+          setSelectedAccount(account);
         }}
       >
         <td>
@@ -41,9 +41,6 @@ const ListAccounts = ({ accounts, wemes_url }) => {
       </tr>
     ));
   };
-
-  // console.log('selectAccount');
-  // console.log(selectAccount);
 
   return (
     <>

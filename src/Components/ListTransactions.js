@@ -8,9 +8,9 @@ import { AiFillEdit } from "react-icons/ai";
 const ListTransactions = ({ transactionData, wemes_url }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
+  const [selectedtransaction, setSelectedTransaction] = useState({});
   const [sortBy, setSortBy] = useState("id");
   const [orderBy, setOrderBy] = useState("desc");
-  const [selectedtransaction, setSelectedTransaction] = useState({});
 
   const sortedTransactions = transactionData.sort((a, b) => {
     let order = orderBy === "asc" ? 1 : -1;
