@@ -61,7 +61,6 @@ const DisplayAccountModal = (props) => {
       />{" "}
       <Modal.Body>
         <Form size="lg" onSubmit={submitAccountData}>
-          {/* <Form size="lg"> */}
           {/* First Name */}
           <Form.Group className="mb-3" controlId="formFirstName">
             <Form.Label>First Name</Form.Label>
@@ -117,7 +116,7 @@ const DisplayAccountModal = (props) => {
           </Form.Group>
 
           {/* Phone */}
-          <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Group className="mb-3" controlId="formPhoneNumber">
             <Form.Label>Phone</Form.Label>
             <Form.Control
               type="name"
@@ -135,7 +134,7 @@ const DisplayAccountModal = (props) => {
           </Form.Group>
 
           {/* Last Four */}
-          <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Group className="mb-3" controlId="formLastFour">
             <Form.Label>Phone</Form.Label>
             <Form.Control
               type="name"

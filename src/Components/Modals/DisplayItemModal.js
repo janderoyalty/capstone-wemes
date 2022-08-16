@@ -10,10 +10,13 @@ function DisplayItemModal(props) {
   const [modalShow, setModalShow] = useState(false);
   const [updatedItemData, setUpdatedItemData] = useState({
     drop_off: props.selecteditem.drop_off,
-    admin: props.selecteditem.admin,
-    customer: props.selecteditem.customer,
-    // items: props.selecteditem.items,
+    due_date: props.selecteditem.due_date,
+    type: props.selecteditem.type,
+    color: props.selecteditem.color,
+    transaction: props.selecteditem.transaction,
     description: props.selecteditem.description,
+    is_shoe: props.selecteditem.is_shoe,
+    follow_up: props.selecteditem.follow_up,
   });
 
   const updateItemData = async (index, itemData) => {
@@ -29,10 +32,13 @@ function DisplayItemModal(props) {
     updateItemData(props.index, updatedItemData);
     setUpdatedItemData({
       drop_off: "",
-      admin: "",
-      // items: "",
+      due_date: "",
+      type: "",
+      color: "",
+      transaction: "",
       description: "",
-      customer: "",
+      is_shoe: "",
+      follow_up: "",
     });
   };
 
@@ -45,12 +51,12 @@ function DisplayItemModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Edit {props.selecteditem.customer}'s 
-          <br/>
-          Item on {props.selecteditem.drop_off}
+          Edit Transaction {props.selecteditem.transaction} Item
+          <br />
+          Dropped Off: {props.selecteditem.drop_off}
         </Modal.Title>
       </Modal.Header>
-      <Button
+      {/* <Button
         variant="warning"
         type="submit"
         onClick={() => setModalShow(true)}
@@ -61,11 +67,10 @@ function DisplayItemModal(props) {
         show={modalShow}
         onHide={() => setModalShow(false)}
         wemes_url={props.wemes_url}
-      />{" "}
+      />{" "} */}
       <Modal.Body>
         <Form size="lg" onSubmit={submitItemData}>
-          {/* <Form size="lg"> */}
-          {/* Drop Off Data*/}
+          {/* Drop Off Date*/}
           <Form.Group className="mb-3" controlId="formDropOffDate">
             <Form.Label>Drop Off Date</Form.Label>
             <Form.Control
@@ -83,60 +88,78 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Customer's Name */}
-          <Form.Group className="mb-3" controlId="formCustomerName">
-            <Form.Label>Cusotmer</Form.Label>
+          {/* Due Date */}
+          <Form.Group className="mb-3" controlId="formDueDate">
+            <Form.Label>Due Date</Form.Label>
             <Form.Control
               type="name"
-              defaultValue={props.selecteditem.customer}
+              // disabled
+              defaultValue={props.selecteditem.due_date}
               onChange={(event) =>
                 setUpdatedItemData({
                   ...updatedItemData,
-                  customer: event.target.value,
+                  due_date: event.target.value,
                 })
               }
             />
             <Form.Text className="text-muted">
-              {props.selecteditem.customer}
+              {props.selecteditem.due_date}
             </Form.Text>
           </Form.Group>
 
-          {/* Admin's Name */}
-          <Form.Group className="mb-3" controlId="formAdminName">
-            <Form.Label>Admin</Form.Label>
+          {/* Transaction */}
+          <Form.Group className="mb-3" controlId="formTransaction">
+            <Form.Label>Transaction</Form.Label>
             <Form.Control
               type="name"
-              defaultValue={props.selecteditem.admin}
+              defaultValue={props.selecteditem.transaction}
               onChange={(event) =>
                 setUpdatedItemData({
                   ...updatedItemData,
-                  admin: event.target.value,
+                  transaction: event.target.value,
                 })
               }
             />
             <Form.Text className="text-muted">
-              {props.selecteditem.admin}
+              {props.selecteditem.transaction}
             </Form.Text>
           </Form.Group>
 
-          {/* Items */}
-          {/* <Form.Group className="mb-3" controlId="formItems">
-            <Form.Label>Items</Form.Label>
+          {/* Type */}
+          <Form.Group className="mb-3" controlId="formType">
+            <Form.Label>Type</Form.Label>
             <Form.Control
               type="name"
-              disabled
-              defaultValue={props.selecteditem.items}
+              defaultValue={props.selecteditem.type}
               onChange={(event) =>
                 setUpdatedItemData({
                   ...updatedItemData,
-                  items: event.target.value,
+                  type: event.target.value,
                 })
               }
             />
             <Form.Text className="text-muted">
-              {props.selecteditem.items}
+              {props.selecteditem.type}
             </Form.Text>
-          </Form.Group> */}
+          </Form.Group>
+
+          {/* Color */}
+          <Form.Group className="mb-3" controlId="formColor">
+            <Form.Label>Color</Form.Label>
+            <Form.Control
+              type="name"
+              defaultValue={props.selecteditem.color}
+              onChange={(event) =>
+                setUpdatedItemData({
+                  ...updatedItemData,
+                  color: event.target.value,
+                })
+              }
+            />
+            <Form.Text className="text-muted">
+              {props.selecteditem.color}
+            </Form.Text>
+          </Form.Group>
 
           {/* Message */}
           <Form.Group className="mb-3" controlId="formMessage">
@@ -155,7 +178,44 @@ function DisplayItemModal(props) {
               {props.selecteditem.description}
             </Form.Text>
           </Form.Group>
+
+          {/* Is Shoe */}
+          <Form.Group className="mb-3" controlId="formIs Shoe">
+            <Form.Label>Is Shoe</Form.Label>
+            <Form.Check
+              type="checkbox"
+              defaultChecked={props.selecteditem.is_shoe}
+              onChange={(event) =>
+                setUpdatedItemData({
+                  ...updatedItemData,
+                  is_shoe: event.target.value,
+                })
+              }
+            />
+            <Form.Text className="text-muted">
+              {props.selecteditem.is_shoe}
+            </Form.Text>
+          </Form.Group>
+
+          {/* FollowUp */}
+          <Form.Group className="mb-3" controlId="formFollowUp">
+            <Form.Label>FollowUp</Form.Label>
+            <Form.Check
+              type="checkbox"
+              defaultChecked={props.selecteditem.description}
+              onChange={(event) =>
+                setUpdatedItemData({
+                  ...updatedItemData,
+                  description: event.target.value,
+                })
+              }
+            />
+            <Form.Text className="text-muted">
+              {props.selecteditem.description}
+            </Form.Text>
+          </Form.Group>
         </Form>
+
         <Button
           className="modal-button"
           variant="warning"

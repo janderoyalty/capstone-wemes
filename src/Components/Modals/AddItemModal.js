@@ -172,7 +172,7 @@ function AddItemModal(props) {
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               type="checkbox"
-              value="false"
+              defaultChecked={true}
               label="Is Shoes"
               onChange={(event) =>
                 setItemData({
@@ -183,10 +183,10 @@ function AddItemModal(props) {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3" controlId="formFollowUp">
             <Form.Check
               type="checkbox"
-              value="false"
+              defaultChecked={false}
               label="Follow Up"
               onChange={(event) =>
                 setItemData({
