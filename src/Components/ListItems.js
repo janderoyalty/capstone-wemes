@@ -19,7 +19,6 @@ const ListItems = ({ items, wemes_url, colordata }) => {
     return sortByA < sortByB ? -1 * order : 1 * order;
   });
 
-  
   const itemInfo = () => {
     return sortedItems.map((item, index) => (
       <tr

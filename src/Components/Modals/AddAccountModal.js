@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
@@ -41,6 +41,7 @@ const AddAccountModal = (props) => {
   });
 
   const submitAccountData = (event) => {
+    props.getAccounts();
     event.preventDefault();
     addAccount(accountData);
     setAccountData({
@@ -52,6 +53,7 @@ const AddAccountModal = (props) => {
       transactions: [],
     });
   };
+  useEffect(() => props.getAccounts(), []);
 
   return (
     <Modal
@@ -157,6 +159,6 @@ const AddAccountModal = (props) => {
       </Modal.Body>
     </Modal>
   );
-}
+};
 
 export default AddAccountModal;

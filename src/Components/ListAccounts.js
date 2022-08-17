@@ -5,7 +5,7 @@ import SortMenuAccounts from "./SortMenuAccounts";
 import { AiFillEdit } from "react-icons/ai";
 import DisplayAccountModal from "./Modals/DisplayAccountModal";
 
-const ListAccounts = ({ accounts, wemes_url }) => {
+const ListAccounts = ({ accounts, wemes_url, getAccounts }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
   const [selectedaccount, setSelectedAccount] = useState({});
@@ -51,6 +51,7 @@ const ListAccounts = ({ accounts, wemes_url }) => {
           wemes_url={wemes_url}
           index={clickedIndex}
           selectedaccount={selectedaccount}
+          getAccounts={getAccounts}
         />
         <SortMenuAccounts
           sortBy={sortBy}

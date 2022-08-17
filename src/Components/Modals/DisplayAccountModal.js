@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
@@ -28,9 +28,12 @@ const DisplayAccountModal = (props) => {
 
   const submitAccountData = (event) => {
     event.preventDefault();
-
     updateAccountData(props.selectedaccount.id, updatedAccountData);
+    props.getAccounts();
   };
+  
+  useEffect(() => props.getAccounts(), []);
+
   return (
     <Modal
       {...props}

@@ -53,8 +53,13 @@ const Accounts = ({ wemes_url }) => {
         show={modalShow}
         onHide={() => hideModal()}
         wemes_url={wemes_url}
+        getAccounts={getAccounts}
       />
-      <ListAccounts wemes_url={wemes_url} accounts={accountData} />
+      <ListAccounts
+        wemes_url={wemes_url}
+        accounts={accountData}
+        getAccounts={getAccounts}
+      />
     </div>
   );
 };

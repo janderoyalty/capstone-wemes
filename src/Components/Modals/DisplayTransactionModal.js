@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
@@ -12,7 +12,6 @@ function DisplayTransactionModal(props) {
     drop_off: props.selectedtransaction.drop_off,
     admin: props.selectedtransaction.admin,
     customer: props.selectedtransaction.customer,
-    // items: props.selectedtransaction.items,
     description: props.selectedtransaction.description,
   });
 
@@ -25,6 +24,7 @@ function DisplayTransactionModal(props) {
   };
 
   const submitTransactionData = (event) => {
+    props.getAccounts();
     event.preventDefault();
     updateTransactionData(props.index, updatedTransactionData);
     setUpdatedTransactionData({
@@ -35,7 +35,7 @@ function DisplayTransactionModal(props) {
       customer: "",
     });
   };
-
+  useEffect(() => props.getAccounts(), []);
   return (
     <Modal
       {...props}
