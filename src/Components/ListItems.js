@@ -6,7 +6,7 @@ import DisplayItemModal from "./Modals/DisplayItemModal";
 import { AiFillEdit } from "react-icons/ai";
 import axios from "axios";
 
-const ListItems = ({ items, wemes_url, colordata }) => {
+const ListItems = ({ items, wemes_url, colorData }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
   const [selecteditem, setSelectedItem] = useState({});
@@ -53,7 +53,7 @@ const ListItems = ({ items, wemes_url, colordata }) => {
           wemes_url={wemes_url}
           index={clickedIndex}
           selecteditem={selecteditem}
-          colordata={colordata}
+          colorData={colorData}
         />
         <SortMenuItems
           sortBy={sortBy}

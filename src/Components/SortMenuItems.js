@@ -37,7 +37,7 @@ const SortMenuItems = ({
         {sortBy === "transaction" && <BiCheck id="board-menu--check-mark" />}
       </Button>
       <br />
-      {/* <h4 className="sort-board-menu--label">order</h4> */}
+      {/*  ********** <h4 className="sort-board-menu--label">order</h4> **********  */}
       <div>
         <FaLongArrowAltUp
           title="ascending"

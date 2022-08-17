@@ -7,7 +7,7 @@ import AddItemModal from "../Modals/AddItemModal";
 const Items = ({ wemes_url }) => {
   const [itemData, setItemData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
-  const [colordata, setColorData] = useState([]);
+  const [colorData, setColorData] = useState([]);
 
   const getColor = () => {
     axios
@@ -28,7 +28,7 @@ const Items = ({ wemes_url }) => {
 
   useEffect(() => getColor(), []);
 
-  // console.log(colordata);
+  // console.log(colorData);
 
   const getItems = () => {
     axios
@@ -73,9 +73,9 @@ const Items = ({ wemes_url }) => {
         show={modalShow}
         onHide={() => hideModal()}
         wemes_url={wemes_url}
-        colordata={colordata}
+        colorData={colorData}
       />
-      <ListItems colordata={colordata} wemes_url={wemes_url} items={itemData} />
+      <ListItems colorData={colorData} wemes_url={wemes_url} items={itemData} />
     </div>
   );
 };

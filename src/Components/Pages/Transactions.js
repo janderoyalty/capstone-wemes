@@ -31,27 +31,6 @@ const Transactions = ({ wemes_url }) => {
       });
   };
 
-  // const getAccounts = () => {
-  //   axios
-  //     .get(`${wemes_url}users/`)
-  //     .then((response) => {
-  //       const newData = response.data.map((account) => {
-  //         return {
-  //           id: account.id,
-  //           first_name: account.first_name,
-  //           last_name: account.last_name,
-  //           admin: account.admin,
-  //           is_active: account.is_active,
-  //         };
-  //       });
-  //       setAccountData(newData);
-  //     })
-  //     .catch((err) => {
-  //       alert(err);
-  //     });
-  // };
-
-  // useEffect(() => getTransactions(), [transactionData]);
   useEffect(() => getTransactions(), []);
 
   const hideModal = () => {
@@ -72,11 +51,15 @@ const Transactions = ({ wemes_url }) => {
         show={addTransactionModalShow}
         onHide={() => hideModal()}
         wemes_url={wemes_url}
+        getTransactions={getTransactions}
+
       />
       <ListTransactions
         wemes_url={wemes_url}
         transactionData={transactionData}
         accountData={accountData}
+        getTransactions={getTransactions}
+
       />
     </div>
   );

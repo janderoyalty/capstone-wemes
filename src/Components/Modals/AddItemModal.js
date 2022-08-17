@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Color from "../Color";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -79,7 +80,7 @@ function AddItemModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Form size="lg" onSubmit={submitItemData}>
-          {/* TAG ID */}
+          {/*  ********** TAG ID **********  */}
           <Form.Group className="mb-3" controlId="formTagID">
             <Form.Label>Tag ID</Form.Label>
             <Form.Control
@@ -95,7 +96,7 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/* DROP OFF DATE */}
+          {/*  ********** DROP OFF DATE **********  */}
           <Form.Group className="mb-3" controlId="formDropOff">
             <Form.Label>Drop Off Date</Form.Label>
             <Form.Control
@@ -110,6 +111,7 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Due Date **********  */}
           <Form.Group className="mb-3" controlId="formDueDate">
             <Form.Label>Due Date</Form.Label>
             <Form.Control
@@ -124,6 +126,7 @@ function AddItemModal(props) {
             />
           </Form.Group>
 
+          {/*  ********** Description/Message **********  */}
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -139,11 +142,10 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-            <Form.Label>Color</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Color"
+            <Color
+              wemes_url={props.wemes_url}
               onChange={(event) =>
                 setItemData({
                   ...itemData,
@@ -154,6 +156,7 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Transaction **********  */}
           <Form.Group className="mb-3" controlId="formTransaction">
             <Form.Label>Transaction</Form.Label>
             <Form.Control
@@ -169,11 +172,12 @@ function AddItemModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Department **********  */}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               type="checkbox"
               defaultChecked={true}
-              label="Is Shoes"
+              label="Is Shoes?"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
@@ -183,6 +187,7 @@ function AddItemModal(props) {
             />
           </Form.Group>
 
+          {/*  ********** FollowUp **********  */}
           <Form.Group className="mb-3" controlId="formFollowUp">
             <Form.Check
               type="checkbox"
@@ -197,6 +202,7 @@ function AddItemModal(props) {
             />
           </Form.Group>
 
+          {/*  ********** Type **********  */}
           <Form.Group className="mb-3" controlId="formType">
             <Form.Label>Type</Form.Label>
             <Form.Control

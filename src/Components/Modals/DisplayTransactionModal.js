@@ -8,34 +8,32 @@ import AddItemModal from "./AddItemModal";
 
 function DisplayTransactionModal(props) {
   const [modalShow, setModalShow] = useState(false);
-  const [updatedTransactionData, setUpdatedTransactionData] = useState({
-    drop_off: props.selectedtransaction.drop_off,
-    admin: props.selectedtransaction.admin,
-    customer: props.selectedtransaction.customer,
-    description: props.selectedtransaction.description,
-  });
+  const [updatedTransactionData, setUpdatedTransactionData] = useState({});
 
   const updateTransactionData = async (index, transactionData) => {
     axios
-      .patch(`${props.wemes_url}users/${index}`, { transactionData })
-      .then(() => setUpdatedTransactionData(transactionData))
+      .patch(`${props.wemes_url}users/${index}`, transactionData)
+      .then()
       .catch((error) => console.log(error));
     return transactionData;
   };
 
-  const submitTransactionData = (event) => {
-    props.getAccounts();
-    event.preventDefault();
-    updateTransactionData(props.index, updatedTransactionData);
-    setUpdatedTransactionData({
-      drop_off: "",
-      admin: "",
-      // items: "",
-      description: "",
-      customer: "",
+  const handleFormChange = (e) => {
+    const updated_key = e.target.name;
+    updateTransactionData({
+      ...updatedTransactionData,
+      [updated_key]: e.target.value, //computed property
     });
   };
-  useEffect(() => props.getAccounts(), []);
+
+  const submitTransactionData = (event) => {
+    event.preventDefault();
+    updateTransactionData(props.index, updatedTransactionData);
+    props.getTransactions();
+  };
+
+  useEffect(() => props.getTransactions(), []);
+
   return (
     <Modal
       {...props}
@@ -45,8 +43,8 @@ function DisplayTransactionModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Edit {props.selectedtransaction.customer}'s 
-          <br/>
+          Edit {props.selectedtransaction.customer}'s
+          <br />
           Transaction on {props.selectedtransaction.drop_off}
         </Modal.Title>
       </Modal.Header>
@@ -64,98 +62,65 @@ function DisplayTransactionModal(props) {
       />{" "}
       <Modal.Body>
         <Form size="lg" onSubmit={submitTransactionData}>
-          {/* <Form size="lg"> */}
-          {/* Drop Off Data*/}
+          {/*  ********** Drop Off Data*/}
           <Form.Group className="mb-3" controlId="formDropOffDate">
             <Form.Label>Drop Off Date</Form.Label>
             <Form.Control
               type="name"
               defaultValue={props.selectedtransaction.drop_off}
-              onChange={(event) =>
-                setUpdatedTransactionData({
-                  ...updatedTransactionData,
-                  drop_off: event.target.value,
-                })
-              }
+              name="drop_off"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedtransaction.drop_off}
             </Form.Text>
           </Form.Group>
 
-          {/* Customer's Name */}
-          <Form.Group className="mb-3" controlId="formCustomerName">
+          {/*  ********** Customer's Name **********  */}
+          {/* <Form.Group className="mb-3" controlId="formCustomerName">
             <Form.Label>Cusotmer</Form.Label>
             <Form.Control
               type="name"
               defaultValue={props.selectedtransaction.customer}
-              onChange={(event) =>
-                setUpdatedTransactionData({
-                  ...updatedTransactionData,
-                  customer: event.target.value,
-                })
-              }
+              name="customer.first_name"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedtransaction.customer}
             </Form.Text>
-          </Form.Group>
+          </Form.Group> */}
 
-          {/* Admin's Name */}
-          <Form.Group className="mb-3" controlId="formAdminName">
+          {/*  ********** Admin's Name **********  */}
+          {/* <Form.Group className="mb-3" controlId="formAdminName">
             <Form.Label>Admin</Form.Label>
             <Form.Control
               type="name"
               defaultValue={props.selectedtransaction.admin}
-              onChange={(event) =>
-                setUpdatedTransactionData({
-                  ...updatedTransactionData,
-                  admin: event.target.value,
-                })
-              }
+              name="admin.first_name"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedtransaction.admin}
             </Form.Text>
-          </Form.Group>
-
-          {/* Items */}
-          {/* <Form.Group className="mb-3" controlId="formItems">
-            <Form.Label>Items</Form.Label>
-            <Form.Control
-              type="name"
-              disabled
-              defaultValue={props.selectedtransaction.items}
-              onChange={(event) =>
-                setUpdatedTransactionData({
-                  ...updatedTransactionData,
-                  items: event.target.value,
-                })
-              }
-            />
-            <Form.Text className="text-muted">
-              {props.selectedtransaction.items}
-            </Form.Text>
           </Form.Group> */}
 
-          {/* Message */}
+          {/*  ********** Items **********  */}
+
+          {/*  ********** Message **********  */}
           <Form.Group className="mb-3" controlId="formMessage">
             <Form.Label>Message</Form.Label>
             <Form.Control
               type="name"
               defaultValue={props.selectedtransaction.description}
-              onChange={(event) =>
-                setUpdatedTransactionData({
-                  ...updatedTransactionData,
-                  description: event.target.value,
-                })
-              }
+              name="description"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedtransaction.description}
             </Form.Text>
           </Form.Group>
         </Form>
+
         <Button
           className="modal-button"
           variant="warning"

@@ -20,7 +20,6 @@ const Accounts = ({ wemes_url }) => {
             last_four: account.last_four,
             phone_num: account.phone_num,
             email: account.email,
-            // code: account.code,
             admin: account.admin,
             is_active: account.is_active,
             transactions: account.transactions,

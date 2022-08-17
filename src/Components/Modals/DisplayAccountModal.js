@@ -31,7 +31,7 @@ const DisplayAccountModal = (props) => {
     updateAccountData(props.selectedaccount.id, updatedAccountData);
     props.getAccounts();
   };
-  
+
   useEffect(() => props.getAccounts(), []);
 
   return (
@@ -60,7 +60,7 @@ const DisplayAccountModal = (props) => {
       />{" "}
       <Modal.Body>
         <Form size="lg" onSubmit={submitAccountData}>
-          {/* First Name */}
+          {/*  ********** First Name **********  */}
           <Form.Group className="mb-3" controlId="formFirstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -74,7 +74,7 @@ const DisplayAccountModal = (props) => {
             </Form.Text>
           </Form.Group>
 
-          {/* Last Name */}
+          {/*  ********** Last Name **********  */}
           <Form.Group className="mb-3" controlId="formLastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
@@ -88,7 +88,7 @@ const DisplayAccountModal = (props) => {
             </Form.Text>
           </Form.Group>
 
-          {/* Email */}
+          {/*  ********** Email **********  */}
           <Form.Group className="mb-3" controlId="formEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -102,7 +102,7 @@ const DisplayAccountModal = (props) => {
             </Form.Text>
           </Form.Group>
 
-          {/* Phone */}
+          {/*  ********** Phone **********  */}
           <Form.Group className="mb-3" controlId="formPhoneNumber">
             <Form.Label>Phone</Form.Label>
             <Form.Control
@@ -116,7 +116,7 @@ const DisplayAccountModal = (props) => {
             </Form.Text>
           </Form.Group>
 
-          {/* Last Four */}
+          {/*  ********** Last Four **********  */}
           <Form.Group className="mb-3" controlId="formLastFour">
             <Form.Label>Phone</Form.Label>
             <Form.Control

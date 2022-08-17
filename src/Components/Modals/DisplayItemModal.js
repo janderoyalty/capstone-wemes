@@ -58,7 +58,7 @@ function DisplayItemModal(props) {
           Dropped Off: {props.selecteditem.drop_off}
         </Modal.Title>
       </Modal.Header>
-      {/* <Button
+      {/*  ********** <Button
         variant="warning"
         type="submit"
         onClick={() => setModalShow(true)}
@@ -69,10 +69,10 @@ function DisplayItemModal(props) {
         show={modalShow}
         onHide={() => setModalShow(false)}
         wemes_url={props.wemes_url}
-      />{" "} */}
+      />{" "} **********  */}
       <Modal.Body>
         <Form size="lg" onSubmit={submitItemData}>
-          {/* Drop Off Date*/}
+          {/*  ********** Drop Off Date*/}
           <Form.Group className="mb-3" controlId="formDropOffDate">
             <Form.Label>Drop Off Date</Form.Label>
             <Form.Control
@@ -90,7 +90,7 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Due Date */}
+          {/*  ********** Due Date **********  */}
           <Form.Group className="mb-3" controlId="formDueDate">
             <Form.Label>Due Date</Form.Label>
             <Form.Control
@@ -109,7 +109,7 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Transaction */}
+          {/*  ********** Transaction **********  */}
           <Form.Group className="mb-3" controlId="formTransaction">
             <Form.Label>Transaction</Form.Label>
             <Form.Control
@@ -127,7 +127,7 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Type */}
+          {/*  ********** Type **********  */}
           <Form.Group className="mb-3" controlId="formType">
             <Form.Label>Type</Form.Label>
             <Form.Control
@@ -145,9 +145,9 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Color */}
+          {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-            <Form.Label>Color</Form.Label>
+            {/* <Form.Label>Color</Form.Label> */}
             <Color
               wemes_url={props.wemes_url}
               onChange={(event) =>
@@ -157,22 +157,12 @@ function DisplayItemModal(props) {
                 })
               }
             />
-            {/* <Form.Control
-              type="name"
-              defaultValue={props.selecteditem.color}
-              onChange={(event) =>
-                setUpdatedItemData({
-                  ...updatedItemData,
-                  color: event.target.value,
-                })
-              }
-            /> */}
             <Form.Text className="text-muted">
               {props.selecteditem.color}
             </Form.Text>
           </Form.Group>
 
-          {/* Message */}
+          {/*  ********** Description/Message **********  */}
           <Form.Group className="mb-3" controlId="formMessage">
             <Form.Label>Message</Form.Label>
             <Form.Control
@@ -190,7 +180,7 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* Is Shoe */}
+          {/*  ********** Department **********  */}
           <Form.Group className="mb-3" controlId="formIs Shoe">
             <Form.Label>Is Shoe</Form.Label>
             <Form.Check
@@ -208,7 +198,7 @@ function DisplayItemModal(props) {
             </Form.Text>
           </Form.Group>
 
-          {/* FollowUp */}
+          {/*  ********** FollowUp **********  */}
           <Form.Group className="mb-3" controlId="formFollowUp">
             <Form.Label>FollowUp</Form.Label>
             <Form.Check

@@ -129,9 +129,9 @@ const AddAccountForm = ({ wemes_url }) => {
         <Form.Label>Transactions</Form.Label>
         <Form.Control type="text" placeholder="" disabled />
       </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/*  ********** <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" value="false" label="Check me out" />
-      </Form.Group> */}
+      </Form.Group> **********  */}
       <Button variant="primary" type="submit">
         Submit
       </Button>

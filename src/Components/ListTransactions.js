@@ -5,7 +5,7 @@ import SortMenuTransactions from "../Components/SortMenuTransactions";
 import DisplayTransactionModal from "./Modals/DisplayTransactionModal";
 import { AiFillEdit } from "react-icons/ai";
 
-const ListTransactions = ({ transactionData, wemes_url }) => {
+const ListTransactions = ({ transactionData, wemes_url, getTransactions }) => {
   const [modalShow, setModalShow] = useState(false);
   const [clickedIndex, setClickedIndex] = useState(0);
   const [selectedtransaction, setSelectedTransaction] = useState({});
@@ -50,6 +50,7 @@ const ListTransactions = ({ transactionData, wemes_url }) => {
           wemes_url={wemes_url}
           index={clickedIndex}
           selectedtransaction={selectedtransaction}
+          getTransactions={getTransactions}
         />
         <SortMenuTransactions
           sortBy={sortBy}

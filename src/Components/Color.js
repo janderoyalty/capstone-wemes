@@ -3,7 +3,7 @@ import axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const Color = ({ wemes_url, onChange }) => {
-  const [colordata, setColorData] = useState([]);
+  const [colorData, setColorData] = useState([]);
 
   const getColor = () => {
     axios
@@ -13,14 +13,16 @@ const Color = ({ wemes_url, onChange }) => {
   };
   useEffect(() => getColor(), []);
 
-  console.log(colordata);
+  // console.log(colorData);
   return (
     <Dropdown variant="warning" onSelect={(eventKey, event) => onChange(event)}>
-      <Dropdown.Toggle>Color</Dropdown.Toggle>
+      <Dropdown.Toggle variant="warning">Color</Dropdown.Toggle>
 
       <Dropdown.Menu variant="light">
-        {colordata.map((color) => (
-          <Dropdown.Item as="button">{color.name}</Dropdown.Item>
+        {colorData.map((color, index) => (
+          <Dropdown.Item key={index} as="button">
+            {color.name}
+          </Dropdown.Item>
         ))}
       </Dropdown.Menu>
     </Dropdown>

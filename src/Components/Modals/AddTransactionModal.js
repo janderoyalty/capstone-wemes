@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Button from "react-bootstrap/Button";
@@ -38,6 +38,7 @@ function AddTransactionModal(props) {
   });
 
   const submitTransactionData = (event) => {
+    props.getTransactions();
     event.preventDefault();
     addTransaction(transactionData);
     setTransactionData({
@@ -48,6 +49,8 @@ function AddTransactionModal(props) {
       items: [],
     });
   };
+
+  useEffect(() => props.getTransactions(), []);
 
   return (
     <Modal
@@ -63,6 +66,7 @@ function AddTransactionModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Form size="lg" onSubmit={submitTransactionData}>
+          {/*  ********** Drop Off Date **********  */}
           <Form.Group className="mb-3" controlId="formDropOff">
             <Form.Label>Drop Off Date</Form.Label>
             <Form.Control
@@ -78,6 +82,7 @@ function AddTransactionModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Admin's Name **********  */}
           <Form.Group className="mb-3" controlId="formAdmin">
             <Form.Label>Your Name</Form.Label>
             <Form.Control
@@ -93,6 +98,7 @@ function AddTransactionModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Customer's Name **********  */}
           <Form.Group className="mb-3" controlId="formCustomer">
             <Form.Label>Customer</Form.Label>
             <Form.Control
@@ -108,6 +114,7 @@ function AddTransactionModal(props) {
             />
           </Form.Group>
 
+          {/*  ********** Desciption/Message **********  */}
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -123,15 +130,16 @@ function AddTransactionModal(props) {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
+          {/*  ********** Items **********  */}
           <Form.Group className="mb-3" controlId="formItems">
             <Form.Label>Items</Form.Label>
             <Form.Control type="text" placeholder="" disabled />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" value="false" label="Check me out" />
-      </Form.Group>
+          {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" value="false" label="Check me out" />
+          </Form.Group> */}
 
           <Button variant="warning" type="submit" onClick={props.onHide}>
             Submit
