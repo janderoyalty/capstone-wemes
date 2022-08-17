@@ -126,32 +126,16 @@ function AddItemModal(props) {
             />
           </Form.Group>
 
-          {/*  ********** Description/Message **********  */}
-          <Form.Group className="mb-3" controlId="formDescription">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="What needs to be done?"
-              onChange={(event) =>
-                setItemData({
-                  ...itemData,
-                  description: event.target.value,
-                })
-              }
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-
           {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Color</Form.Label>
             <Form.Control
               type="text"
               placeholder="1: Black, 2:Brown, 3:White, 4:Cream, 5:Grey, 6:Red, 7:Blue, 8:Yellow, 9:Green, 10:Orange, 11:Purple, 12:Pink, 13:Teal"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
-                  description: event.target.value,
+                  color: event.target.value,
                 })
               }
             />
@@ -166,17 +150,15 @@ function AddItemModal(props) {
             /> */}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
-
-          {/*  ********** Transaction **********  */}
-          <Form.Group className="mb-3" controlId="formTransaction">
-            <Form.Label>Transaction</Form.Label>
+          {/*  ********** Type **********  */}
+          <Form.Group className="mb-3" controlId="formType">
+            <Form.Label>Type</Form.Label>
             <Form.Control
-              type="text"
-              // placeholder="Color"
+              placeholder="1:men's, 2:women's, 3:kid's"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
-                  transaction: event.target.value,
+                  type: event.target.value,
                 })
               }
             />
@@ -212,16 +194,16 @@ function AddItemModal(props) {
               }
             />
           </Form.Group>
-
-          {/*  ********** Type **********  */}
-          <Form.Group className="mb-3" controlId="formType">
-            <Form.Label>Type</Form.Label>
+          {/*  ********** Description/Message **********  */}
+          <Form.Group className="mb-3" controlId="formDescription">
+            <Form.Label>Description</Form.Label>
             <Form.Control
-              placeholder="1:men's, 2:women's, 3:kid's"
+              type="text"
+              placeholder="What needs to be done?"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
-                  type: event.target.value,
+                  description: event.target.value,
                 })
               }
             />
@@ -231,6 +213,21 @@ function AddItemModal(props) {
           {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" value="false" label="Check me out" />
       </Form.Group> */}
+          {/*  ********** Transaction **********  */}
+          <Form.Group className="mb-3" controlId="formTransaction">
+            <Form.Label>Transaction</Form.Label>
+            <Form.Control
+              type="text"
+              // placeholder="Color"
+              onChange={(event) =>
+                setItemData({
+                  ...itemData,
+                  transaction: event.target.value,
+                })
+              }
+            />
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
 
           <Button variant="warning" type="submit" onClick={props.onHide}>
             Submit
