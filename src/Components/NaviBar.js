@@ -10,10 +10,9 @@ import Items from "./Pages/Items";
 // import "../wemes_logo.png"
 
 const NaviBar = ({ accounts, transactions }) => {
-  const wemes_url = "https://wemes-be.herokuapp.com/";
-  // const wemes_url = "http://127.0.0.1:8000/";
-  // const Img = <img src={/wemes_logo.png}/>;
-  //
+  // const wemes_url = "https://wemes-be.herokuapp.com/";
+  const wemes_url = "http://127.0.0.1:8000/";
+
   return (
     <Router>
       <div>
