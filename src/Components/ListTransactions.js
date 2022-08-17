@@ -32,6 +32,7 @@ const ListTransactions = ({ transactionData, wemes_url, getTransactions }) => {
         <td>
           <AiFillEdit />
         </td>
+        <td>{transaction.id}</td>
         <td>{transaction.customer}</td>
         <td>{transaction.admin}</td>
         <td>{transaction.drop_off}</td>
@@ -67,6 +68,7 @@ const ListTransactions = ({ transactionData, wemes_url, getTransactions }) => {
         <thead>
           <tr>
             <th>Edit</th>
+            <th>Id</th>
             <th>Customer</th>
             <th>Admin</th>
             <th>Dropped Off</th>

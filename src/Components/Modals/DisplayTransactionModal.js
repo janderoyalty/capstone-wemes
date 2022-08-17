@@ -9,10 +9,34 @@ import AddItemModal from "./AddItemModal";
 function DisplayTransactionModal(props) {
   const [modalShow, setModalShow] = useState(false);
   const [updatedTransactionData, setUpdatedTransactionData] = useState({});
+  const [transactionData, setTransactionData] = useState([]);
+
+  const getTransactions = () => {
+    axios
+      .get(`${props.wemes_url}transactions/`)
+      .then((response) => {
+        const newData = response.data.map((transaction) => {
+          return {
+            id: transaction.id,
+            drop_off: transaction.drop_off,
+            // admin: `${transaction.admin.first_name} ${transaction.admin.last_name}`,
+            // customer: `${transaction.customer.first_name} ${transaction.customer.last_name}`,
+            admin: transaction.admin,
+            customer: transaction.customer,
+            items: transaction.items,
+            description: transaction.description,
+          };
+        });
+        setTransactionData(newData);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
 
   const updateTransactionData = async (index, transactionData) => {
     axios
-      .patch(`${props.wemes_url}users/${index}`, transactionData)
+      .patch(`${props.wemes_url}transactions/${index}`, transactionData)
       .then()
       .catch((error) => console.log(error));
     return transactionData;
@@ -20,7 +44,7 @@ function DisplayTransactionModal(props) {
 
   const handleFormChange = (e) => {
     const updated_key = e.target.name;
-    updateTransactionData({
+    setUpdatedTransactionData({
       ...updatedTransactionData,
       [updated_key]: e.target.value, //computed property
     });
@@ -28,8 +52,8 @@ function DisplayTransactionModal(props) {
 
   const submitTransactionData = (event) => {
     event.preventDefault();
-    updateTransactionData(props.index, updatedTransactionData);
-    props.getTransactions();
+    updateTransactionData(props.selectedtransaction.id, updatedTransactionData);
+    getTransactions();
   };
 
   useEffect(() => props.getTransactions(), []);

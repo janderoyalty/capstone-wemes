@@ -7,7 +7,6 @@ import Form from "react-bootstrap/Form";
 import AddAccountModal from "./AddAccountModal";
 
 const DisplayAccountModal = (props) => {
-  
   const [modalShow, setModalShow] = useState(false);
   const [updatedAccountData, setUpdatedAccountData] = useState({});
   const [accountData, setAccountData] = useState([]);

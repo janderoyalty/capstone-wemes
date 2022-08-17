@@ -84,7 +84,7 @@ function AddTransactionModal(props) {
 
           {/*  ********** Admin's Name **********  */}
           <Form.Group className="mb-3" controlId="formAdmin">
-            <Form.Label>Your Name</Form.Label>
+            <Form.Label>Admin</Form.Label>
             <Form.Control
               type="name"
               placeholder="Who are you?"

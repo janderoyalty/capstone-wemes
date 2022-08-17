@@ -8,7 +8,7 @@ import AddTransactionModal from "../Modals/AddTransactionModal";
 const Transactions = ({ wemes_url }) => {
   const [transactionData, setTransactionData] = useState([]);
   const [addTransactionModalShow, setAddTransactionModalShow] = useState(false);
-  const [accountData, setAccountData] = useState([]);
+  // const [accountData, setAccountData] = useState([]);
 
   const getTransactions = () => {
     axios
@@ -59,7 +59,7 @@ const Transactions = ({ wemes_url }) => {
       <ListTransactions
         wemes_url={wemes_url}
         transactionData={transactionData}
-        accountData={accountData}
+        // accountData={accountData}
         getTransactions={getTransactions}
 
       />
