@@ -23,8 +23,12 @@ const AddAccountModal = (props) => {
         email: email,
         transactions: transactions,
       })
-      .then((response) => {})
-      .catch((error) => {});
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const [accountData, setAccountData] = useState({
@@ -49,7 +53,6 @@ const AddAccountModal = (props) => {
       transactions: [],
     });
   };
-
   useEffect(() => props.getAccounts(), []);
 
   return (
@@ -66,7 +69,6 @@ const AddAccountModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <Form size="lg" onSubmit={submitAccountData}>
-          {/*  ********** First Name **********  */}
           <Form.Group className="mb-3" controlId="formFirstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -82,7 +84,6 @@ const AddAccountModal = (props) => {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/*  ********** Last Name **********  */}
           <Form.Group className="mb-3" controlId="formLastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
@@ -98,7 +99,6 @@ const AddAccountModal = (props) => {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/*  ********** Email **********  */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -111,7 +111,6 @@ const AddAccountModal = (props) => {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/*  ********** Phone Number **********  */}
           <Form.Group className="mb-3" controlId="formPhoneNumber">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
@@ -128,7 +127,6 @@ const AddAccountModal = (props) => {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/*  ********** Last Four **********  */}
           <Form.Group className="mb-3" controlId="formLastFour">
             <Form.Label>Last Four</Form.Label>
             <Form.Control
@@ -144,17 +142,15 @@ const AddAccountModal = (props) => {
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
-
-          {/*  ********** Transactions **********  */}
           <Form.Group className="mb-3" controlId="formTransactions">
             <Form.Label>Transactions</Form.Label>
             <Form.Control type="text" placeholder="" disabled />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          {/*  ********** <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" value="false" label="Check me out" />
-      </Form.Group> **********  */}
+      </Form.Group> */}
 
           <Button variant="warning" type="submit" onClick={props.onHide}>
             Submit

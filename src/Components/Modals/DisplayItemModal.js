@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Color from "../Color";
+// import Color from "../Color";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -147,9 +147,10 @@ function DisplayItemModal(props) {
 
           {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-            {/* <Form.Label>Color</Form.Label> */}
-            <Color
-              wemes_url={props.wemes_url}
+            <Form.Label>Color</Form.Label>
+            <Form.Control
+              type="name"
+              defaultValue={props.selecteditem.color}
               onChange={(event) =>
                 setUpdatedItemData({
                   ...updatedItemData,
@@ -157,6 +158,15 @@ function DisplayItemModal(props) {
                 })
               }
             />
+            {/* <Color
+              wemes_url={props.wemes_url}
+              onChange={(event) =>
+                setUpdatedItemData({
+                  ...updatedItemData,
+                  color: event.target.value,
+                })
+              }
+            /> */}
             <Form.Text className="text-muted">
               {props.selecteditem.color}
             </Form.Text>

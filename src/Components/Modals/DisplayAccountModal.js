@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import AddTransactionModal from "./AddTransactionModal";
+import AddAccountModal from "./AddAccountModal";
 
 const DisplayAccountModal = (props) => {
   const [modalShow, setModalShow] = useState(false);
@@ -53,7 +53,7 @@ const DisplayAccountModal = (props) => {
       >
         Add Transaction
       </Button>
-      <AddTransactionModal
+      <AddAccountModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         wemes_url={props.wemes_url}
