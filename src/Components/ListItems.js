@@ -74,8 +74,8 @@ const ListItems = ({ items, wemes_url, colorData }) => {
             <th>Due Date</th>
             <th>Type</th>
             <th>Color</th>
-            <th>Is Shoe</th>
-            <th>Follow-Up</th>
+            <th>Department</th>
+            <th>Needs Follow-Up</th>
             <th>Description</th>
             <th>Transaction</th>
           </tr>

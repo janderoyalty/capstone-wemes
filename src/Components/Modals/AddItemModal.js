@@ -144,7 +144,18 @@ function AddItemModal(props) {
 
           {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-            <Color
+          <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="1: Black, 2:Brown, 3:White, 4:Cream, 5:Grey, 6:Red, 7:Blue, 8:Yellow, 9:Green, 10:Orange, 11:Purple, 12:Pink, 13:Teal"
+              onChange={(event) =>
+                setItemData({
+                  ...itemData,
+                  description: event.target.value,
+                })
+              }
+            />
+            {/* <Color
               wemes_url={props.wemes_url}
               onChange={(event) =>
                 setItemData({
@@ -152,7 +163,7 @@ function AddItemModal(props) {
                   color: event.target.value,
                 })
               }
-            />
+            /> */}
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
@@ -206,7 +217,7 @@ function AddItemModal(props) {
           <Form.Group className="mb-3" controlId="formType">
             <Form.Label>Type</Form.Label>
             <Form.Control
-              placeholder="Men's, Women's, or Kid's?"
+              placeholder="1:men's, 2:women's, 3:kid's"
               onChange={(event) =>
                 setItemData({
                   ...itemData,
