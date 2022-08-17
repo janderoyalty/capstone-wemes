@@ -6,8 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 const AddAccountModal = (props) => {
-
-
+  
   const getAccounts = () => {
     axios
       .get(`${props.wemes_url}users/`)

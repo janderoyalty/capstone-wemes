@@ -8,6 +8,7 @@ const Accounts = ({ wemes_url }) => {
   const [accountData, setAccountData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
 
+  
   const getAccounts = () => {
     axios
       .get(`${wemes_url}users/`)
