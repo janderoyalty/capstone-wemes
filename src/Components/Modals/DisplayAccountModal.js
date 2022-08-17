@@ -8,35 +8,28 @@ import AddTransactionModal from "./AddTransactionModal";
 
 const DisplayAccountModal = (props) => {
   const [modalShow, setModalShow] = useState(false);
-  // const [accountIndex, setAccountIndex] = useState(0)
-  const [updatedAccountData, setUpdatedAccountData] = useState({
-    first_name: props.selectedaccount.first_name,
-    last_name: props.selectedaccount.last_name,
-    email: props.selectedaccount.email,
-    phone_num: props.selectedaccount.phone_num,
-    last_four: props.selectedaccount.last_four,
-  });
+  const [updatedAccountData, setUpdatedAccountData] = useState({});
 
   const updateAccountData = async (index, accountData) => {
     axios
-      .patch(`${props.wemes_url}users/${index}`, { accountData })
-      .then(() => setUpdatedAccountData(accountData))
+      .patch(`${props.wemes_url}users/${index}/`, accountData)
+      .then()
       .catch((error) => console.log(error));
     return accountData;
   };
 
+  const handleFormChange = (e) => {
+    const updated_key = e.target.name;
+    setUpdatedAccountData({
+      ...updatedAccountData,
+      [updated_key]: e.target.value, //computed property
+    });
+  };
+
   const submitAccountData = (event) => {
     event.preventDefault();
-    console.log("YOU ARE HERE");
-    console.log(props.selectedaccount.id);
+
     updateAccountData(props.selectedaccount.id, updatedAccountData);
-    // setUpdatedAccountData({
-    //   first_name: "",
-    //   last_name: "",
-    //   phone_num: "",
-    //   last_four: "",
-    //   email: "",
-    // });
   };
   return (
     <Modal
@@ -70,12 +63,8 @@ const DisplayAccountModal = (props) => {
             <Form.Control
               type="name"
               defaultValue={props.selectedaccount.first_name}
-              onChange={(event) =>
-                setUpdatedAccountData({
-                  ...updatedAccountData,
-                  first_name: event.target.value,
-                })
-              }
+              name="first_name"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedaccount.first_name}
@@ -88,12 +77,8 @@ const DisplayAccountModal = (props) => {
             <Form.Control
               type="name"
               defaultValue={props.selectedaccount.last_name}
-              onChange={(event) =>
-                setUpdatedAccountData({
-                  ...updatedAccountData,
-                  last_name: event.target.value,
-                })
-              }
+              name="last_name"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedaccount.last_name}
@@ -106,12 +91,8 @@ const DisplayAccountModal = (props) => {
             <Form.Control
               type="name"
               defaultValue={props.selectedaccount.email}
-              onChange={(event) =>
-                setUpdatedAccountData({
-                  ...updatedAccountData,
-                  email: event.target.value,
-                })
-              }
+              name="email"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedaccount.email}
@@ -124,12 +105,8 @@ const DisplayAccountModal = (props) => {
             <Form.Control
               type="name"
               defaultValue={props.selectedaccount.phone_num}
-              onChange={(event) =>
-                setUpdatedAccountData({
-                  ...updatedAccountData,
-                  phone_num: event.target.value,
-                })
-              }
+              name="phone_num"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedaccount.phone_num}
@@ -142,31 +119,22 @@ const DisplayAccountModal = (props) => {
             <Form.Control
               type="name"
               defaultValue={props.selectedaccount.last_four}
-              onChange={(event) =>
-                setUpdatedAccountData({
-                  ...updatedAccountData,
-                  last_four: event.target.value,
-                })
-              }
+              name="last_four"
+              onChange={handleFormChange}
             />
             <Form.Text className="text-muted">
               {props.selectedaccount.last_four}
             </Form.Text>
           </Form.Group>
+
           <Button
-          className="modal-button"
-          variant="warning"
-          type="submit"
-          onClick={props.onHide}
-          >
-          Submit
-        </Button>
-          {/* <input
-            // className="modal-button"
-            // variant="warning"
+            className="modal-button"
+            variant="warning"
             type="submit"
             onClick={props.onHide}
-          /> */}
+          >
+            Submit
+          </Button>
         </Form>
       </Modal.Body>
     </Modal>
