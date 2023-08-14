@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ListItems from "../ListItems";
 import axios from "axios";
+// icons
 import { FaTags } from "react-icons/fa";
+// components
 import AddItemModal from "../Modals/AddItemModal";
+import ListItems from "../ListItems";
 
 const Items = ({ wemes_url }) => {
   const [itemData, setItemData] = useState([]);
@@ -11,7 +13,7 @@ const Items = ({ wemes_url }) => {
 
   const getColor = () => {
     axios
-      .get(`${wemes_url}color/`)
+      .get(`${wemes_url}colors/`)
       .then((response) => {
         const newData = response.data.map((color) => {
           return {

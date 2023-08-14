@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -10,7 +10,6 @@ const DisplayAccountModal = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [updatedAccountData, setUpdatedAccountData] = useState({});
   const [accountData, setAccountData] = useState([]);
-
 
   const getAccounts = () => {
     axios
@@ -35,7 +34,6 @@ const DisplayAccountModal = (props) => {
         alert(err);
       });
   };
-
 
   const updateAccountData = async (index, accountData) => {
     axios

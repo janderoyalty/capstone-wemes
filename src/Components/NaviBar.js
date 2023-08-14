@@ -1,8 +1,10 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+
 import Accounts from "./Pages/Accounts";
 import Home from "./Pages/Home";
 import Transactions from "./Pages/Transactions";
@@ -10,8 +12,8 @@ import Items from "./Pages/Items";
 // import "../wemes_logo.png"
 
 const NaviBar = ({ accounts, transactions }) => {
-  const wemes_url = "https://wemes-be.herokuapp.com/";
-  // const wemes_url = "http://127.0.0.1:8000/";
+  // const wemes_url = "https://wemes-be.herokuapp.com/";
+  const wemes_url = "http://127.0.0.1:8000/";
 
   return (
     <Router>

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import Color from "../Color";
-
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import AddItemModal from "./AddItemModal";
 import { Col } from "react-bootstrap";
+// components
+import AddItemModal from "./AddItemModal";
+// import Color from "../Color";
 
 function DisplayItemModal(props) {
   const [modalShow, setModalShow] = useState(false);

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ListTransactions from "../ListTransactions";
 import PropTypes from "prop-types";
+// icons
 import { FaUserTag } from "react-icons/fa";
+// components
 import AddTransactionModal from "../Modals/AddTransactionModal";
+import ListTransactions from "../ListTransactions";
 
 const Transactions = ({ wemes_url }) => {
   const [transactionData, setTransactionData] = useState([]);
@@ -54,14 +56,12 @@ const Transactions = ({ wemes_url }) => {
         onHide={() => hideModal()}
         wemes_url={wemes_url}
         getTransactions={getTransactions}
-
       />
       <ListTransactions
         wemes_url={wemes_url}
         transactionData={transactionData}
         // accountData={accountData}
         getTransactions={getTransactions}
-
       />
     </div>
   );

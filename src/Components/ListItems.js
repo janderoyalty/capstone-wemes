@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Table from "react-bootstrap/Table";
-import PropTypes from "prop-types";
-import SortMenuItems from "./SortMenuItems";
-import DisplayItemModal from "./Modals/DisplayItemModal";
-import { AiFillEdit } from "react-icons/ai";
 import axios from "axios";
+import PropTypes from "prop-types";
+// icons
+import { AiFillEdit } from "react-icons/ai";
+// Bootstrap
+import Table from "react-bootstrap/Table";
+// components
+import DisplayItemModal from "./Modals/DisplayItemModal";
+import SortMenuItems from "./SortMenuItems";
 
 const ListItems = ({ items, wemes_url, colorData }) => {
   const [modalShow, setModalShow] = useState(false);

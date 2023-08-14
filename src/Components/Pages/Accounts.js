@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import ListAccounts from "../ListAccounts";
 import axios from "axios";
+// icons
 import { FaUserPlus } from "react-icons/fa";
+// components
 import AddAccountModal from "../Modals/AddAccountModal";
+import ListAccounts from "../ListAccounts";
 
 const Accounts = ({ wemes_url }) => {
   const [accountData, setAccountData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
 
-  
   const getAccounts = () => {
     axios
       .get(`${wemes_url}users/`)

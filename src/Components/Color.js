@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
 
-const Color = ({ wemes_url, onChange }) => {
+const Colors = ({ wemes_url, onChange }) => {
   const [colorData, setColorData] = useState([]);
 
   const getColor = () => {
     axios
-      .get(`${wemes_url}color/`)
+      .get(`${wemes_url}colors/`)
       .then((response) => setColorData(response.data))
       .catch(alert);
   };
@@ -29,4 +29,4 @@ const Color = ({ wemes_url, onChange }) => {
   );
 };
 
-export default Color;
+export default Colors;

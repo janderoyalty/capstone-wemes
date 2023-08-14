@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Color from "../Color";
-
+// Bootstrap
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+// components
+import Color from "../Color";
 
 function AddItemModal(props) {
   const addItem = ({
@@ -128,7 +129,7 @@ function AddItemModal(props) {
 
           {/*  ********** Color **********  */}
           <Form.Group className="mb-3" controlId="formColor">
-          <Form.Label>Color</Form.Label>
+            <Form.Label>Color</Form.Label>
             <Form.Control
               type="text"
               placeholder="1: Black, 2:Brown, 3:White, 4:Cream, 5:Grey, 6:Red, 7:Blue, 8:Yellow, 9:Green, 10:Orange, 11:Purple, 12:Pink, 13:Teal"

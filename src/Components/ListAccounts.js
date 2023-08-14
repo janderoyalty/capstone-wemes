@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
-import SortMenuAccounts from "./SortMenuAccounts";
+// Bootstrap
+import Table from "react-bootstrap/Table";
+// icons
 import { AiFillEdit } from "react-icons/ai";
+// components
+import SortMenuAccounts from "./SortMenuAccounts";
 import DisplayAccountModal from "./Modals/DisplayAccountModal";
 
 const ListAccounts = ({ accounts, wemes_url, getAccounts }) => {

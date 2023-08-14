@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
-import SortMenuTransactions from "../Components/SortMenuTransactions";
-import DisplayTransactionModal from "./Modals/DisplayTransactionModal";
+// icons
 import { AiFillEdit } from "react-icons/ai";
+// Bootstrap
+import Table from "react-bootstrap/Table";
+// components
+import DisplayTransactionModal from "./Modals/DisplayTransactionModal";
+import SortMenuTransactions from "../Components/SortMenuTransactions";
 
 const ListTransactions = ({ transactionData, wemes_url, getTransactions }) => {
   const [modalShow, setModalShow] = useState(false);

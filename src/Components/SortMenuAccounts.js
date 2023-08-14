@@ -1,7 +1,9 @@
+// import "./Styles/SortBoardMenu.css";
+import PropTypes from "prop-types";
+// icons
 import { BiCheck } from "react-icons/bi";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
-import PropTypes from "prop-types";
-// import "./Styles/SortBoardMenu.css";
+// Bootstrap
 import Button from "react-bootstrap/Button";
 
 const SortMenuAccounts = ({
